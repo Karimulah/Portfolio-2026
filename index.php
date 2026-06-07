@@ -1,3 +1,9 @@
+﻿<?php
+session_start();
+require 'config/connexion.php';
+require 'composants/fonctions.php';
+log_visite($pdo);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,111 +13,22 @@
     <meta name="description" content="Portfolio d'Abdou Diatta, Etudiant en Génie Logiciel et Administration Réseaux à Dakar.">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Specific Home Styles */
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: radial-gradient(circle at center, var(--color-surface) 0%, var(--color-bg) 100%);
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .hero .highlight {
-            color: var(--color-primary);
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .skills-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-        }
-
-        .skill-tag {
-            background-color: var(--color-surface);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            border: 1px solid var(--color-border);
-            font-weight: 500;
-            color: var(--color-text-primary);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--spacing-lg) 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: var(--color-primary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--color-bg);
-            border: 4px solid var(--color-primary);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
+        .hero { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at center, var(--color-surface) 0%, var(--color-bg) 100%); }
+        .hero h1 { font-size: 4rem; margin-bottom: 0.5rem; }
+        .hero .highlight { color: var(--color-primary); }
+        .hero p { font-size: 1.25rem; max-width: 600px; margin: 0 auto 2rem; }
+        .skills-section { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xl); }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); }
+        .skill-tag { background-color: var(--color-surface); padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid var(--color-border); font-weight: 500; color: var(--color-text-primary); }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: var(--spacing-lg) 0; }
+        .timeline::after { content: ''; position: absolute; width: 2px; background-color: var(--color-primary); top: 0; bottom: 0; left: 50%; margin-left: -1px; }
+        .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--color-bg); border: 4px solid var(--color-primary); top: 15px; border-radius: 50%; z-index: 1; }
         .left { left: 0; }
         .right { left: 50%; }
-        
-        .right::after {
-            left: -10px;
-        }
-
-        .timeline-content {
-            padding: var(--spacing-lg);
-            background-color: var(--color-surface);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--color-border);
-        }
-
-        .timeline-date {
-            color: var(--color-primary);
-            font-weight: bold;
-            margin-bottom: var(--spacing-sm);
-            display: block;
-        }
-
+        .right::after { left: -10px; }
+        .timeline-content { padding: var(--spacing-lg); background-color: var(--color-surface); border-radius: var(--border-radius); border: 1px solid var(--color-border); }
+        .timeline-date { color: var(--color-primary); font-weight: bold; margin-bottom: var(--spacing-sm); display: block; }
         @media screen and (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .skills-section { grid-template-columns: 1fr; }
@@ -124,18 +41,7 @@
 </head>
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">Abdou<span>Diatta.</span></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="projects.html">Projets</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <?php require 'composants/navigation.php'; ?>
 
     <main>
         <section class="hero">
@@ -143,8 +49,8 @@
                 <h1>Bonjour, je suis <span class="highlight">Abdou Diatta</span></h1>
                 <p>Étudiant en Génie Logiciel & Administration Réseaux. Passionné par les technologies réseau, la cybersécurité et l'administration des systèmes informatiques.</p>
                 <div>
-                    <a href="projects.html" class="btn btn-primary">Voir mes projets</a>
-                    <a href="contact.html" class="btn btn-outline" style="margin-left: 10px;">Me contacter</a>
+                    <a href="projets.php" class="btn btn-primary">Voir mes projets</a>
+                    <a href="contact.php" class="btn btn-outline" style="margin-left: 10px;">Me contacter</a>
                 </div>
             </div>
         </section>
@@ -253,16 +159,7 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="mailto:Karimulah0107@gmail.com" title="Email" aria-label="Email">@</a>
-                <a href="#" title="LinkedIn" aria-label="LinkedIn">IN</a>
-                <a href="#" title="GitHub" aria-label="GitHub">GH</a>
-            </div>
-            <p>&copy; 2026 Abdou Diatta. Dakar, Sénégal.</p>
-        </div>
-    </footer>
+    <?php require 'composants/pied-de-page.php'; ?>
 
 </body>
 </html>
