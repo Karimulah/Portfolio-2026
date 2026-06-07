@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 require 'config/connexion.php';
 require 'composants/fonctions.php';
@@ -65,9 +65,19 @@ try {
                     <article class="project-card">
                         <?php if (!empty($projet['image'])): ?>
                             <img src="<?= htmlspecialchars($projet['image']) ?>" alt="<?= htmlspecialchars($projet['titre']) ?>" class="project-img">
-                        <?php else: ?>
-                            <div class="project-img" style="background: linear-gradient(45deg, #1e3c72, #2a5298); display: flex; align-items: center; justify-content: center;">
-                                <span style="color: rgba(255,255,255,0.7); font-family: var(--font-heading);">Sans Image</span>
+                        <?php else: 
+                            $gradients = [
+                                'linear-gradient(45deg, #1e3c72, #2a5298)',
+                                'linear-gradient(45deg, #cc2b5e, #753a88)',
+                                'linear-gradient(135deg, #11998e, #38ef7d)',
+                                'linear-gradient(135deg, #fc4a1a, #f7b733)',
+                                'linear-gradient(135deg, #000046, #1CB5E0)'
+                            ];
+                            $index = (int)$projet['id'] % count($gradients);
+                            $bg = $gradients[$index];
+                        ?>
+                            <div class="project-img" style="background: <?= $bg ?>; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem;">
+                                <span style="color: rgba(255,255,255,0.9); font-family: var(--font-heading); font-size: 1.1rem; font-weight: bold;"><?= htmlspecialchars($projet['titre']) ?></span>
                             </div>
                         <?php endif; ?>
                         

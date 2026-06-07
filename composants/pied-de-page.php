@@ -1,4 +1,4 @@
-﻿<footer>
+<footer>
     <div class="container">
         <div class="social-links">
             <a href="mailto:Karimulah0107@gmail.com" title="Email" aria-label="Email">@</a>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 require 'config/connexion.php';
 require 'composants/fonctions.php';
@@ -51,6 +51,7 @@ log_visite($pdo);
                 <div>
                     <a href="projets.php" class="btn btn-primary">Voir mes projets</a>
                     <a href="contact.php" class="btn btn-outline" style="margin-left: 10px;">Me contacter</a>
+                    <a href="blog/accueil.php" class="btn btn-primary" style="margin-left: 10px; background-color: #ff6b6b; border-color: #ff6b6b;">Découvrir le Blog</a>
                 </div>
             </div>
         </section>
