@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets | Abdou Diatta</title>
+    <meta name="description" content="Découvrez les projets académiques et personnels d'Abdou Diatta.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .projects-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .search-form {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .search-form input {
+            flex: 1;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .project-card {
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: transform var(--transition-fast), border-color var(--transition-fast);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .project-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            margin-bottom: 0.2rem;
+            font-size: 1.25rem;
+        }
+        
+        .project-date {
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+            display: block;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            flex: 1;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .tag {
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+        }
+
+        .project-links {
+            margin-top: var(--spacing-md);
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Abdou<span>Diatta.</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projects.html" class="active">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="projects-header">
+                <h1>Projets Académiques & Personnels</h1>
+                <p>Voici quelques travaux pratiques et projets que j'ai réalisés.</p>
+            </div>
+
+            <form class="search-form" action="#" method="GET">
+                <input type="search" name="q" placeholder="Rechercher (ex: Réseau, LAN, Windows Server...)" aria-label="Rechercher un projet">
+                <button type="submit" class="btn btn-primary">Filtrer</button>
+            </form>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-img" style="background: linear-gradient(45deg, #1e3c72, #2a5298); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: rgba(255,255,255,0.7); font-family: var(--font-heading);">Réseau LAN</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mise en place d'un réseau local (LAN)</h3>
+                        <span class="project-date">2024 - 2025</span>
+                        <p class="project-desc">Conception et déploiement d'un LAN avec routeur, switch et stations de travail. Adressage IP, sous-réseaux VLSM, test de connectivité et documentation technique.</p>
+                        <div class="project-tags">
+                            <span class="tag">Réseau</span>
+                            <span class="tag">LAN</span>
+                            <span class="tag">VLSM</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img" style="background: linear-gradient(45deg, #cc2b5e, #753a88); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: rgba(255,255,255,0.7); font-family: var(--font-heading);">Huawei CLI</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Configuration Huawei via CLI</h3>
+                        <span class="project-date">2024 - 2025</span>
+                        <p class="project-desc">Configuration en ligne de commande de routeurs et switches Huawei : déploiement d'ACL, configuration de VLAN, et mise en place de routage statique et dynamique (OSPF).</p>
+                        <div class="project-tags">
+                            <span class="tag">Huawei</span>
+                            <span class="tag">CLI</span>
+                            <span class="tag">OSPF</span>
+                            <span class="tag">VLAN</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #11998e, #38ef7d); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: rgba(255,255,255,0.7); font-family: var(--font-heading);">Cisco Packet Tracer</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Simulation réseau complexe</h3>
+                        <span class="project-date">2024 - 2025</span>
+                        <p class="project-desc">Simulation de topologies complexes sous Cisco Packet Tracer : implémentation de routage RIP/OSPF, VLANs, services DNS/DHCP et filtrage de sécurité.</p>
+                        <div class="project-tags">
+                            <span class="tag">Cisco</span>
+                            <span class="tag">Simulation</span>
+                            <span class="tag">RIP/OSPF</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #fc4a1a, #f7b733); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: rgba(255,255,255,0.7); font-family: var(--font-heading);">Maison Intelligente</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Home - Maison Intelligente</h3>
+                        <span class="project-date">2025 - 2026</span>
+                        <p class="project-desc">Simulation d'une maison connectée. Intégration de capteurs, automatisation domotique et mise en place de protocoles IoT basiques.</p>
+                        <div class="project-tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Domotique</span>
+                            <span class="tag">Automatisation</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #000046, #1CB5E0); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: rgba(255,255,255,0.7); font-family: var(--font-heading);">Windows Server</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Administration Windows Server</h3>
+                        <span class="project-date">2025 - 2026</span>
+                        <p class="project-desc">Gestion d'utilisateurs sous Windows Server. Mise en place d'un domaine Active Directory, création d'unités organisationnelles (OU), gestion des GPO et des politiques de sécurité.</p>
+                        <div class="project-tags">
+                            <span class="tag">Windows Server</span>
+                            <span class="tag">Active Directory</span>
+                            <span class="tag">GPO</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:Karimulah0107@gmail.com" title="Email" aria-label="Email">@</a>
+                <a href="#" title="LinkedIn" aria-label="LinkedIn">IN</a>
+                <a href="#" title="GitHub" aria-label="GitHub">GH</a>
+            </div>
+            <p>&copy; 2026 Abdou Diatta. Dakar, Sénégal.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
